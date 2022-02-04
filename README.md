@@ -100,7 +100,7 @@ db.grades.aggregate( [{ $match: { class_id: 212} },
 
 #### D.
 
-##### The standard deviation of exam scores is 29.280553806350333
+##### The standard deviation of exam scores is 29.345839403132832
 
 ```
 db.grades.aggregate( [{ $match: { class_id: 212} },
@@ -111,7 +111,7 @@ db.grades.aggregate( [{ $match: { class_id: 212} },
      $group:
         {
           _id: ["$scores.type"],
-          Standard_deviation: { $stdDevPop: "$scores.score" }
+          Standard_deviation: { $stdDevSamp: "$scores.score" }
         }
     },
     {$match:{_id:"exam"}}
